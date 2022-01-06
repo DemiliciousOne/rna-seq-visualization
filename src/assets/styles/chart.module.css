@@ -1,0 +1,87 @@
+:root {
+    --main-color: #e8594f;
+    --secondary-color: #24154e;
+    --accent-color: #f6acc8;
+    --background: #0e0844;
+    --background-two: #6c4374;
+    --axis-color: #fff;
+    --font-family: 'Poppins';
+}
+
+.backgroundStyle {
+    background-color: var(--background);
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerText {
+    color: var(--axis-color);
+    font-family: var(--font-family);
+    font-weight: 300;
+    opacity: 0.8;
+    margin: 40px;
+}
+
+.resetButtonStyle {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    border: 0;
+    color: var(--axis-color);
+    height: 40px;
+    width: 120px;
+    margin: 30px;
+    opacity: 0.8;
+}
+
+.graphContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dataContainer {
+    background-color: var(--background-two);
+    height: 300px;
+    width: 200px;
+    margin: 40px;
+    border-radius: 10px;
+    opacity: 0.6;
+    overflow-y: auto;
+    padding: 20px;
+    color: var(--axis-color);
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+.dataListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listStyle {
+    list-style: none;
+}
+
+.dataHeaderStyle {
+    color: var(--axis-color);
+    font-family: var(--font-family);
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.tooltip {
+    background-color: var(--background-two)!important; /* !important is used to overwrite defaultStyles from visx tooltip component */
+    color: var(--axis-color)!important;
+    border-width: 1px!important;
+    border-style: solid;
+    border-color: var(--axis-color);
+    font-family: var(--font-family);
+    min-width: 72px;
+    text-align: center;
+}
