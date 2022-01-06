@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# rna-seq-visualization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web app that visualizes RNA sequencing data.
 
-## Available Scripts
+https://user-images.githubusercontent.com/17756417/148440880-fee4b5ff-a5b1-436e-b02d-f1678d4f157b.mov
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
+### Getting started
+
+1. Check that nothing is running on port 3000.
+2. Run the following commands in the root directory:
+```
+npm install
+npm start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Testing
 
-### `npm test`
+1. Run the following command:
+```
+npm test
+```
+2. Follow the instructions in your terminal to proceed with testing (Press `a` to run all test).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Challenge Summary
+### Assumptions
+- If the count for a range is X, then each integer position in the range’s count is also X. I mainly did this to make the data more ingestible for the chart components, and it seemed like most ranges were from one integer to the same integer. 
+- As a result of the first point, this chart disregards decimal position values.
+- `counts.json` will always be in the same format.
 
-### `npm run build`
+### Solution
+I used Airbnb’s visx to create this chart because of its nice default aesthetics and easy-to-use brush element. Having a brush element seemed essential in this case because the 5k+ data points were being crammed into a small chart area. I first tried using nivo and decided to switch over because it doesn’t have a brush component, and it would have taken a while to build one from scratch with d3. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I chose an area chart because counts are a total of overlapping reads, and it would have that “overlapping feeling from position to position.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To display the provided annotations, I added simple SVG graphics to the chart. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Libraries/Tools used
+- visx for chart creation
+- Create React App project with TypeScript for the web interface
+- Jest for testing
+- ESLint and Prettier for formatting
+- Axios for API calls
+- Express.js for the API server
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### If it was a bigger project
+- I would create a form that lets users input their own data.
+- I would try out a Canvas implementation instead of SVG to handle more data points and make the tooltip more responsive. 
+- There could be a better way to show the data than just in a list below the chart. 
